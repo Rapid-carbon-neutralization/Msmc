@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.mcbst.msmc.client.match.ServerMatcher;
 
@@ -38,7 +37,6 @@ public class MsmcClient implements ClientModInitializer {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
             FriendlyByteBuf handshake = PacketByteBufs.create();
             handshake.writeUtf("zip.txt"); // Required marker so the plugin knows Msmc is installed.
-            handshake.writeUtf(client.getGame().getVersion().getName()); // attach client version for logging
             sender.sendPacket(HANDSHAKE, handshake);
             Msmc.LOGGER.info("Sent Msmc handshake (zip.txt) to server.");
         });

@@ -59,7 +59,7 @@ public final class ServerMatcher {
                             result.address, result.avgLatencyMs, Math.round(result.loss * 100));
 
                     ServerAddress target = ServerAddress.parseString(result.address);
-                    ServerData data = new ServerData("Msmc 匹配", result.address, false);
+                    ServerData data = new ServerData("Msmc 匹配", result.address, ServerData.Type.OTHER);
                     // ConnectScreen handles disconnecting from the current server before opening a new connection.
                     ConnectScreen.startConnecting(waiting, client, target, data, false, null);
                 }));

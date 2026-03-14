@@ -38,6 +38,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	// Ensure client source set sees the same deps when using splitEnvironmentSourceSets
+	modClientImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modClientImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	
 }
 
